@@ -1,0 +1,2 @@
+ignored:
+  - DL3012 # Deprecated https://github.com/hadolint/hadolint/wiki/DL3012
