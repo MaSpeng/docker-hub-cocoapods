@@ -11,6 +11,6 @@ RUN apt-get update \
 
 RUN gem install cocoapods --version "${COCOAPODS_VERSION}"
 
-ENTRYPOINT [ "pod" ]
+ENTRYPOINT ["pod"]
 
-CMD [ "--help" ]
+CMD ["--help"]
