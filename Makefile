@@ -1,26 +1,22 @@
 NAME = cocoapods
-
-VERSIONS = 1.5
+VERSION = 1.9
 
 .PHONY: build
-build: ${VERSIONS}
-
-.PHONY: ${VERSIONS}
-${VERSIONS}:
-	@echo "Build ${@}"
+build:
+	@echo "Build ${VERSION}"
 
 	@docker run \
 		--rm \
 		--volume "$(shell pwd)":/app \
 		finalgene/hadolint \
-		${@}/Dockerfile
+		Dockerfile
 
 	@docker build \
 		--no-cache \
-		--tag maspeng/${NAME}:${@}-dev \
-		${@}/
+		--tag maspeng/${NAME}:${VERSION}-dev \
+		./
 
-	@docker images maspeng/${NAME}:${@}-dev
+	@docker images maspeng/${NAME}:${VERSION}-dev
 
 .PHONY: clean
 clean:
